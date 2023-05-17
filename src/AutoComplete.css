@@ -1,0 +1,10 @@
+.dropdown{
+    background-color: #ffffff;
+    font-size: 15px;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.dropdown:hover{
+    background-color: #888888;
+}

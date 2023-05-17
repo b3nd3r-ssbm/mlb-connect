@@ -1,0 +1,41 @@
+@keyframes flash-red {
+    0% {
+      background-color: inherit;
+    }
+    50% {
+      background-color: red;
+    }
+    100% {
+      background-color: inherit;
+    }
+  }
+
+  @keyframes flash-green {
+    0% {
+      background-color: inherit;
+    }
+    50% {
+      background-color: #00ff00;
+    }
+    100% {
+      background-color: inherit;
+    }
+  }
+
+  
+.flash-red {
+    animation: flash-red 500ms;
+  }
+
+  .flash-green {
+    animation: flash-green 500ms;
+  }
+
+img {
+  width:100px;
+  height:100px;
+}
+
+input{
+  width:80%;
+}

@@ -5,7 +5,7 @@ import { ConnectGrid } from './ConnectGrid.js';
 import { BottomMenu } from './BottomMenu.js';
 
 function App() {
-  
+
   return (
     <DataProvider>
       <ConnectGrid></ConnectGrid>

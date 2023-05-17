@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { DataContext } from "./DataProvider.js";
 
-export function BottomMenu(){
+export function BottomMenu(props){
     const { theseTeams, teams, getTheseTeams} = useContext(DataContext);
 
     const copy = () => {
@@ -10,14 +10,18 @@ export function BottomMenu(){
         alert("Copied " + url + " to clipboard");
     }
     
+    const clearBoard = () => {
+    }
+
     const newBoard = () => {
         getTheseTeams(teams);
     }
 
     return (
         <div style={{width:"100%",alignItems:"center",textAlign:"center"}}>
-            <button onClick={copy}>Share Board</button>
-            <button onClick={newBoard}>New Game</button>
+            <button style={{width:"11%",fontSize:"18px"}} onClick={copy}>Share Board</button>
+            <button style={{width:"11%",fontSize:"18px"}} onClick={clearBoard}>Clear Board</button>
+            <button style={{width:"11%",fontSize:"18px"}} onClick={newBoard}>New Game</button>
         </div>
     )
 }

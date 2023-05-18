@@ -27,7 +27,7 @@ export function AutoComplete(props){
         if (e.nativeEvent.explicitOriginalTarget && (e.nativeEvent.explicitOriginalTarget.className == "dropdown" || (e.nativeEvent.explicitOriginalTarget.parentElement && e.nativeEvent.explicitOriginalTarget.parentElement.className == "dropdown"))) {
             return;
         }
-        setIsFocused(false);
+        setTimeout(() => setIsFocused(false), 0);
     };
 
     const handleOptionClick = (value) => {

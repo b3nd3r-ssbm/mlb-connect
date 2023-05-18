@@ -8,6 +8,7 @@ export const DataProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [theseTeams, setTheseTeams] = useState([]);
   const [oldTeams, setOldTeams] = useState({});
+  const [correct, setCorrect] = useState([[false, false, false], [false, false, false], [false, false, false]]);
 
   useEffect(() => {
     fetchData();
@@ -61,7 +62,7 @@ export const DataProvider = ({ children }) => {
   };
 
   return (
-    <DataContext.Provider value={{ people, teams, data, theseTeams, oldTeams, getTheseTeams }}>
+    <DataContext.Provider value={{ people, teams, data, theseTeams, oldTeams, getTheseTeams, correct, setCorrect }}>
       {children}
     </DataContext.Provider>
   );

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { DataContext } from "./DataProvider.js";
 
 export function BottomMenu(props){
-    const { theseTeams, teams, getTheseTeams} = useContext(DataContext);
+    const { theseTeams, teams, getTheseTeams, setCorrect} = useContext(DataContext);
 
     const copy = () => {
         const url = window.location.origin + "/?teams=" + JSON.stringify(theseTeams).substring(1, JSON.stringify(theseTeams).length - 1).replaceAll('\"', '');
@@ -11,9 +11,11 @@ export function BottomMenu(props){
     }
     
     const clearBoard = () => {
+        setCorrect([[false, false, false], [false, false, false], [false, false, false]]);
     }
 
     const newBoard = () => {
+        clearBoard();
         getTheseTeams(teams);
     }
 

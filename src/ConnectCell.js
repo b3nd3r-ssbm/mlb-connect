@@ -6,7 +6,6 @@ import './Cell.css';
 export function ConnectCell(props){
     const { data, people, oldTeams } = useContext(DataContext);
     let [value, setValue] = useState("");
-    const [correct, setCorrect] = useState(false);
     const [incorrect, setIncorrect] = useState(false);
     const [flashGreen, setFlashGreen] = useState(false);
 
@@ -21,6 +20,9 @@ export function ConnectCell(props){
 
     
     function shareElement(arr1, arr2) {
+        if(!arr1 || !arr2){
+            return false;
+        }
         const hash = {};
         for (const elem of arr1) {
           hash[elem] = true;
@@ -40,7 +42,7 @@ export function ConnectCell(props){
         }
         let matches = people[value];
         for(let i of matches){
-            if((data[i]["teams"].includes(props.teams[0]) || shareElement(data[i]["teams"], oldTeams[props.teams[0]])) && (data[i]["teams"].includes(props.teams[1]) || shareElement(data[i]["teams"], oldTeams[props.teams[1]]))){
+            if(shareElement(data[i]["teams"], oldTeams[props.teams[0]]) && shareElement(data[i]["teams"], oldTeams[props.teams[1]])){
                 rightGuess();
                 return;
             }
@@ -54,7 +56,8 @@ export function ConnectCell(props){
     }
 
     const rightGuess = () => {
-        setCorrect(true);
+        props.setCorrect(props.row, props.col);
+        console.log(props.correct);
         setFlashGreen(true);
         setTimeout(() => setFlashGreen(false), 500);
     }
@@ -67,7 +70,7 @@ export function ConnectCell(props){
 
     return (
         <div style={{height:"100%", alignItems:"center"}} className={(incorrect ? 'flash-red' : '') + ' ' + (flashGreen ? 'flash-green' : '')}>
-            { correct ? <span>{value}</span> : <AutoComplete submitVal={submitVal} list={Object.keys(people)} onInputChange={updateVal} onSubmit={check} value={value}></AutoComplete>}
+            { props.correct ? <span>{value}</span> : <AutoComplete submitVal={submitVal} list={Object.keys(people)} onInputChange={updateVal} onSubmit={check} value={value}></AutoComplete>}
         </div>
     )
 }

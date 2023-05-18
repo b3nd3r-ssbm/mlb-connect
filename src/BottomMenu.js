@@ -5,7 +5,7 @@ export function BottomMenu(props){
     const { theseTeams, teams, getTheseTeams, setCorrect} = useContext(DataContext);
 
     const copy = () => {
-        const url = window.location.toString();
+        const url = window.location.toString() + "/?teams=" + JSON.stringify(theseTeams).substring(1, JSON.stringify(theseTeams).length - 1).replaceAll('\"', '');
         if(url.includes('?')){
             url = window.location.substring(0, window.location.toString().indexOf('?')) + "?teams=" + JSON.stringify(theseTeams).substring(1, JSON.stringify(theseTeams).length - 1).replaceAll('\"', '');
         }

@@ -1,6 +1,6 @@
 # MLB Connect
 
-A [playable] (https://b3nd3r-ssbm.github.io/mlb-connect) web version of the Jomboy Media gameshow
+A [playable](https://b3nd3r-ssbm.github.io/mlb-connect) web version of the Jomboy Media gameshow
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

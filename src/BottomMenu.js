@@ -5,7 +5,7 @@ export function BottomMenu(props){
     const { theseTeams, teams, getTheseTeams, setCorrect} = useContext(DataContext);
 
     const copy = () => {
-        const url = window.location.origin + "/?teams=" + JSON.stringify(theseTeams).substring(1, JSON.stringify(theseTeams).length - 1).replaceAll('\"', '');
+        const url = window.location.substring(0, window.location.indexOf('?')) + "?teams=" + JSON.stringify(theseTeams).substring(1, JSON.stringify(theseTeams).length - 1).replaceAll('\"', '');
         navigator.clipboard.writeText(url);
         alert("Copied " + url + " to clipboard");
     }
